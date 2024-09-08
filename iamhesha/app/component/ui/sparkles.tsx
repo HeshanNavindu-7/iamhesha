@@ -1,5 +1,5 @@
 "use client";
-import React, { useId, useMemo } from "react";
+import React, { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container, SingleOrMultiple } from "@tsparticles/engine";
@@ -18,6 +18,7 @@ type ParticlesProps = {
   particleColor?: string;
   particleDensity?: number;
 };
+
 export const SparklesCore = (props: ParticlesProps) => {
   const {
     id,
@@ -29,15 +30,17 @@ export const SparklesCore = (props: ParticlesProps) => {
     particleColor,
     particleDensity,
   } = props;
+  
   const [init, setInit] = useState(false);
+  const controls = useAnimation();
+
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
     });
-  }, []);
-  const controls = useAnimation();
+  }, []); // No dynamic dependencies here
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
@@ -52,6 +55,7 @@ export const SparklesCore = (props: ParticlesProps) => {
   };
 
   const generatedId = useId();
+  
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
       {init && (
@@ -69,7 +73,6 @@ export const SparklesCore = (props: ParticlesProps) => {
               enable: false,
               zIndex: 1,
             },
-
             fpsLimit: 120,
             interactivity: {
               events: {
@@ -81,7 +84,7 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                resize: true as any,
+                // resize: true, // Changed from `true as any` to `true`
               },
               modes: {
                 push: {
@@ -379,54 +382,31 @@ export const SparklesCore = (props: ParticlesProps) => {
               },
               orbit: {
                 animation: {
-                  count: 0,
                   enable: false,
                   speed: 1,
-                  decay: 0,
-                  delay: 0,
                   sync: false,
                 },
-                enable: false,
+                radius: 10,
                 opacity: 1,
                 rotation: {
-                  value: 45,
+                  direction: "clockwise",
+                  speed: 1,
                 },
-                width: 1,
+                path: false,
               },
-              links: {
-                blink: false,
-                color: {
-                  value: "#fff",
-                },
-                consent: false,
-                distance: 100,
+              collision: {
                 enable: false,
-                frequency: 1,
-                opacity: 1,
-                shadow: {
-                  blur: 5,
-                  color: {
-                    value: "#000",
-                  },
-                  enable: false,
+                bump: {
+                  distance: 5,
+                  angle: 180,
                 },
-                triangles: {
-                  enable: false,
-                  frequency: 1,
-                },
-                width: 1,
-                warp: false,
-              },
-              repulse: {
-                value: 0,
-                enabled: false,
-                distance: 1,
-                duration: 1,
-                factor: 1,
-                speed: 1,
               },
             },
             detectRetina: true,
+            theme: {
+              enable: false,
+            },
+            zIndex: 0,
           }}
         />
       )}
