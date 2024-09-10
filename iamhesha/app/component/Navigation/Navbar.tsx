@@ -22,7 +22,7 @@ const Navbar = () => {
         as="button"
         className="dark:bg-black bg-gray-800 text-black dark:text-white flex items-center space-x-2"
       >
-    <div className="bg-gray-800 text-white rounded-3xl w-full h-16 flex justify-between items-center px-4">
+    <div className="bg-gray-800 text-white rounded-3xl w-full h-12  flex justify-between items-center px-4">
       <ul className="mx-24 flex space-x-24">
         {leftLinks.map(({ id, link, href }) => (
           <li key={id} className="cursor-pointer hover:text-yellow-400">
