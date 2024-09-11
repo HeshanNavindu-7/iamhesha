@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  useMotionValueEvent,
   useScroll,
   useTransform,
   motion,
@@ -43,8 +42,8 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
       ref={containerRef}
     >
       <div className="px-4 md:px-8 lg:px-10">
-        <p className="text-xl md:text-2xl  text-white dark:text-neutral-500 whitespace-nowrap">
-          I've been working on Aceternity for the past 2 years. Here's a timeline of my journey.
+        <p className="text-xl md:text-2xl text-white dark:text-neutral-500 whitespace-nowrap">
+          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s a timeline of my journey.
         </p>
       </div>
 
@@ -53,14 +52,14 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
           <div key={index} className="flex flex-col justify-start pt-6 md:pt-12 md:gap-1">
             <div className="sticky flex flex-col z-40 items-start top-30 max-w-xs lg:max-w-sm w-full">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full dark:bg-black flex items-center justify-center">
-                <div className="h-4  rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
+                <div className="h-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-700 p-2" />
               </div>
 
               {/* Combine title and content in the same flex container */}
               <div className="flex flex-col pl-16 md:pl-20 ">
-              <h3 className="text-xl md:text-3xl font-bold text-white dark:text-neutral-300 whitespace-nowrap">
-  {item.title}
-</h3>
+                <h3 className="text-xl md:text-3xl font-bold text-white dark:text-neutral-300 whitespace-nowrap">
+                  {item.title}
+                </h3>
                 <div className="text-neutral-300 dark:text-neutral-100 text-xs md:text-sm font-normal">
                   {item.content}
                 </div>

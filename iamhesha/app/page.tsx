@@ -1,4 +1,5 @@
 'use client';
+
 import Image from "next/image";
 import Navbar from "./component/Navigation/Navbar";
 import { FlipWords } from "./component/ui/flip-words";
@@ -12,9 +13,9 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'rea
 export default function Home() {
   const words = ["YouTuber", "Web Developer", "Mobile Developer", "UI/UX Designer", "AI/ML Enthusiast"];
   const words_about = `Motivated undergraduate student majoring in Computing Information Systems with a strong passion
- for web, mobile, and desktop development, and a keen interest in AI/ML. An energetic team player
- who thrives in dynamic environments, eager to contribute skills and gain hands-on experience in
- software engineering.`;
+for web, mobile, and desktop development, and a keen interest in AI/ML. An energetic team player
+who thrives in dynamic environments, eager to contribute skills and gain hands-on experience in
+software engineering.`;
 
   const timelineData = [
     {
@@ -68,7 +69,7 @@ export default function Home() {
         <div className="flex justify-between items-center px-10 text-white relative">
           <div className="max-w-xl">
             <h1 className="font-bold mb-6 text-4xl">
-              I'm <span className="from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">Heshan Navindu</span>,<br />
+              I&apos;m <span className="from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">Heshan Navindu</span>,<br />
               <FlipWords words={words} /> <br />
             </h1>
             <div className="flex gap-4 mb-6">

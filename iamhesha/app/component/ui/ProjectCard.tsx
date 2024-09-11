@@ -1,6 +1,6 @@
 // components/ui/ProjectCard.tsx
 import Image from 'next/image';
-import Link from 'next/link';
+// import Link from 'next/link';
 import { FaGithub, FaBehance, FaVideo } from 'react-icons/fa';  // Import icons from react-icons
 
 interface ProjectCardProps {

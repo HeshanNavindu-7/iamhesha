@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export const TextHoverEffect = ({
   text,
   duration,
-  automatic,
+  // automatic,
 }: {
   text: string;
   duration?: number;

@@ -1,5 +1,4 @@
-"use client";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/app/lib/utils";
 
@@ -18,8 +17,10 @@ export const TextGenerateEffect = ({
 }: TextGenerateEffectProps) => {
   const [scope, animate] = useAnimate();
 
-  // Ensure words is a valid string
-  const wordsArray = (typeof words === "string" && words.trim()) ? words.split(" ") : [];
+  // Memoize wordsArray to avoid recalculating on every render
+  const wordsArray = useMemo(() => {
+    return typeof words === "string" && words.trim() ? words.split(" ") : [];
+  }, [words]);
 
   useEffect(() => {
     if (wordsArray.length === 0) return; // No words to animate
