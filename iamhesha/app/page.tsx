@@ -65,8 +65,10 @@ software engineering.`;
         baseHue={120}
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >
-        <Navbar />
-        <div className="flex justify-between items-center px-10 text-white relative">
+        <div className="w-full flex justify-center mt-8">
+    <Navbar />
+  </div>
+        <div className="flex justify-between items-center px-10 text-white relative ml-16">
           <div className="max-w-xl">
             <h1 className="font-bold mb-6 text-4xl">
               I&apos;m <span className="from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">Heshan Navindu</span>,<br />
@@ -141,14 +143,14 @@ software engineering.`;
             </div>
             <div className="md:w-1/2 flex flex-wrap gap-4 justify-center">
               <Image
-                src="/images/timeline-image1.png"
+                src="/images/hero.png"
                 alt="Timeline Image 1"
                 width={300}
                 height={300}
                 className="rounded-lg"
               />
               <Image
-                src="/images/timeline-image2.png"
+                src="/images/hero.png"
                 alt="Timeline Image 2"
                 width={300}
                 height={300}
