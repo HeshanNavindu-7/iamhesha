@@ -11,7 +11,8 @@ import ProjectCard from "./component/ui/ProjectCard";
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';  // Import React Icons
 import { SetStateAction, useState } from "react";
 import { ExpandableCardDemo } from "./component/section/card/ExpandableCardDemo";
-import { FeaturesSectionDemo } from "./component/section/bento/FeaturesSectionDemo";
+import VideoSection from "./component/section/YouTubeVideo/VideoSection";
+
 
 export default function Home() {
   const words = ["YouTuber", "Web Developer", "Mobile Developer", "UI/UX Designer", "AI/ML Enthusiast"];
@@ -158,10 +159,12 @@ software engineering.`;
       </section>
       <section id="youtube" className="w-full py-16 text-white">
  
-       <FeaturesSectionDemo/>
+
       </section>
 
-
+<section>
+<VideoSection />
+</section>
     </main>
   );
 }
