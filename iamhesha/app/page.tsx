@@ -7,8 +7,12 @@ import { Vortex } from "./component/ui/vortex";
 import { TextHoverEffect } from "./component/ui/text-hover-effect";
 import { TextGenerateEffect } from "./component/ui/text-generate-effect";
 import { Timeline } from "./component/ui/timeline";
-import ProjectCard from "./component/ui/ProjectCard";
+
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';  // Import React Icons
+
+import { ExpandableCardDemo } from "./component/section/card/ExpandableCardDemo";
+import VideoSection from "./component/section/YouTubeVideo/VideoSection";
+
 
 export default function Home() {
   const words = ["YouTuber", "Web Developer", "Mobile Developer", "UI/UX Designer", "AI/ML Enthusiast"];
@@ -40,22 +44,9 @@ software engineering.`;
     },
   ];
 
-  const projects = [
-    {
-      title: "Tech Project One",
-      description: "A groundbreaking project involving modern technologies.",
-      imageUrl: "/images/hero1.png",
-      link: "#"
-    },
-    {
-      title: "Tech Project Two",
-      description: "An innovative project showcasing new tech developments.",
-      imageUrl: "/images/hero1.png",
-      link: "#"
-    },
-    // Add more projects as needed
-  ];
 
+
+  
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Vortex
@@ -66,8 +57,8 @@ software engineering.`;
         className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
       >
         <div className="w-full flex justify-center mt-8">
-    <Navbar />
-  </div>
+          <Navbar />
+        </div>
         <div className="flex justify-between items-center px-10 text-white relative ml-16">
           <div className="max-w-xl">
             <h1 className="font-bold mb-6 text-4xl">
@@ -119,7 +110,7 @@ software engineering.`;
           </div>
         </div>
       </Vortex>
-      
+
       {/* IAMHESHA Section */}
       <div className="h-[20rem] flex items-center justify-center">
         <TextHoverEffect text="IAMHESHA" />
@@ -156,7 +147,6 @@ software engineering.`;
                 height={300}
                 className="rounded-lg"
               />
-              {/* Add more images as needed */}
             </div>
           </div>
         </div>
@@ -164,21 +154,17 @@ software engineering.`;
 
       {/* Projects Section */}
       <section id="projects" className="w-full py-16 text-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-6 text-center">Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <ProjectCard
-                key={index}
-                title={project.title}
-                description={project.description}
-                imageUrl={project.imageUrl}
-                link={project.link}
-              />
-            ))}
-          </div>
-        </div>
+      <h2 className="text-4xl font-bold mb-6 text-center">Projects</h2>
+        <ExpandableCardDemo/>
       </section>
+      <section id="youtube" className="w-full py-16 text-white">
+ 
+
+      </section>
+
+<section>
+<VideoSection />
+</section>
     </main>
   );
 }
