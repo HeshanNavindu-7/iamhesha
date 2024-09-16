@@ -136,7 +136,7 @@ export function ExpandableCardDemo() {
 
       {/* Cards Layout */}
       <ul className="max-w-6xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-  {filteredCards.map((card, index) => (
+  {filteredCards.map((card) => (
     <motion.div
       layoutId={`card-${card.title}-${id}`}
       key={card.title}

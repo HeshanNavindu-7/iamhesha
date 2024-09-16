@@ -41,7 +41,8 @@ const VideoSection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        {/* Video Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {filteredVideos.slice(0, visibleCount).map((video, index) => (
             <YouTubeVideo key={index} videoId={video.videoId} title={video.title} />
           ))}

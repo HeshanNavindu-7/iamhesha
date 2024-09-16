@@ -7,9 +7,9 @@ import { Vortex } from "./component/ui/vortex";
 import { TextHoverEffect } from "./component/ui/text-hover-effect";
 import { TextGenerateEffect } from "./component/ui/text-generate-effect";
 import { Timeline } from "./component/ui/timeline";
-import ProjectCard from "./component/ui/ProjectCard";
+
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaGithub } from 'react-icons/fa';  // Import React Icons
-import { SetStateAction, useState } from "react";
+
 import { ExpandableCardDemo } from "./component/section/card/ExpandableCardDemo";
 import VideoSection from "./component/section/YouTubeVideo/VideoSection";
 
