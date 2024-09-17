@@ -12,9 +12,9 @@ import { FaFacebookF, FaLinkedinIn, FaGithub, FaBehance, FaYoutube } from 'react
 
 import { ExpandableCardDemo } from "./component/section/card/ExpandableCardDemo";
 import VideoSection from "./component/section/YouTubeVideo/VideoSection";
-import { HeroParallax } from "./component/ui/hero-parallax";
+
 import { HeroParallaxDemo } from "./component/section/HeroParallaxDemo/HeroParallaxDemo";
-import Contact from "./Pages/contact/page";
+
 import Footer from "./component/section/Footer/Footer";
 import { Button } from "./component/ui/moving-border";
 

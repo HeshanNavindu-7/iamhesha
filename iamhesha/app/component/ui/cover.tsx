@@ -6,7 +6,7 @@ import { SparklesCore } from "@/app/component/ui/sparkles";
 
 export const Cover = ({
   children,
-  className,
+  
 }: {
   children?: React.ReactNode;
   className?: string;

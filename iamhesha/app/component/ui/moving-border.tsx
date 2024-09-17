@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { RefObject } from "react";
 import {
   motion,
   useAnimationFrame,
@@ -10,6 +10,7 @@ import {
 import { useRef } from "react";
 import { cn } from "@/app/lib/utils";
 
+// Button component
 export function Button({
   borderRadius = "2rem",
   children,
@@ -22,17 +23,17 @@ export function Button({
 }: {
   borderRadius?: string;
   children: React.ReactNode;
-  as?: any;
+  as?: React.ElementType;
   containerClassName?: string;
   borderClassName?: string;
   duration?: number;
   className?: string;
-  [key: string]: any;
+  [key: string]: unknown; // Replacing `any` with `unknown` for additional props
 }) {
   return (
     <Component
       className={cn(
-        "bg-transparent relative text-xl  h-16 w-40 p-[1px] overflow-hidden ",
+        "bg-transparent relative text-xl h-16 w-40 p-[1px] overflow-hidden",
         containerClassName
       )}
       style={{
@@ -69,6 +70,7 @@ export function Button({
   );
 }
 
+// MovingBorder component
 export const MovingBorder = ({
   children,
   duration = 3000,
@@ -80,11 +82,12 @@ export const MovingBorder = ({
   duration?: number;
   rx?: string;
   ry?: string;
-  [key: string]: any;
+  [key: string]: unknown; // Replacing `any` with `unknown`
 }) => {
-  const pathRef = useRef<any>();
+  const pathRef: RefObject<SVGRectElement> = useRef<SVGRectElement>(null);
   const progress = useMotionValue<number>(0);
 
+  // Use framer-motion's `useAnimationFrame` to continuously update the position of the border
   useAnimationFrame((time) => {
     const length = pathRef.current?.getTotalLength();
     if (length) {
@@ -95,13 +98,14 @@ export const MovingBorder = ({
 
   const x = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).x
+    (val) => pathRef.current?.getPointAtLength(val)?.x || 0
   );
   const y = useTransform(
     progress,
-    (val) => pathRef.current?.getPointAtLength(val).y
+    (val) => pathRef.current?.getPointAtLength(val)?.y || 0
   );
 
+  // Use motion template to move the element
   const transform = useMotionTemplate`translateX(${x}px) translateY(${y}px) translateX(-50%) translateY(-50%)`;
 
   return (
