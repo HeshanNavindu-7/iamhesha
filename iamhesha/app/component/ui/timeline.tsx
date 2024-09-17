@@ -43,7 +43,7 @@ export const Timeline: React.FC<TimelineProps> = ({ data }) => {
     >
       <div className="px-4 md:px-8 lg:px-10">
         <p className="text-xl md:text-2xl text-white dark:text-neutral-500 whitespace-nowrap">
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s a timeline of my journey.
+          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s  my journey.
         </p>
       </div>
 
