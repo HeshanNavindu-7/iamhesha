@@ -11,8 +11,8 @@ const Navbar = () => {
 
   const rightLinks = [
     { id: 3, link: "Skills", href: "/skills" },
-    { id: 4, link: "Blog", href: "/blog" },
-    { id: 5, link: "Contact", href: "/contact" },
+    { id: 4, link: "Projects", href: "/Pages/project" },
+    { id: 5, link: "Contact", href: "/Pages/contact" },
   ];
 
   return (
