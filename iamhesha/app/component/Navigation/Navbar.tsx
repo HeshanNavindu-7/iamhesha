@@ -5,7 +5,7 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 const Navbar = () => {
   const leftLinks = [
     { id: 1, link: "Home", href: "/" },
-    { id: 2, link: "About", href: "/about" },
+    { id: 2, link: "About", href: "#about" },
     { id: 3, link: "Services", href: "/services" },
   ];
 

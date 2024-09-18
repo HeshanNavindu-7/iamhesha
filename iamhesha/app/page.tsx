@@ -6,7 +6,7 @@ import { FlipWords } from "./component/ui/flip-words";
 import { Vortex } from "./component/ui/vortex";
 import { TextHoverEffect } from "./component/ui/text-hover-effect";
 import { TextGenerateEffect } from "./component/ui/text-generate-effect";
-import { Timeline } from "./component/ui/timeline";
+// import { Timeline } from "./component/ui/timeline";
 
 import { FaFacebookF, FaLinkedinIn, FaGithub, FaBehance, FaYoutube } from 'react-icons/fa';  // Import React Icons
 
@@ -148,7 +148,7 @@ Hire me
         </div>
       </section>
 
-      {/* Timeline Section */}
+      {/* Timeline Section
       <section id="timeline" className="w-full py-16 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-bold mb-6 text-left">Education</h2>
@@ -168,17 +168,14 @@ Hire me
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Projects Section */}
       <section id="projects" className="w-full py-16 text-white">
-      <h2 className="text-4xl font-bold mb-6 text-center">Projects</h2>
+      <h2 className="text-5xl font-bold mb-6 text-center">Projects</h2>
         <ExpandableCardDemo/>
       </section>
-      <section id="youtube" className="w-full py-16 text-white">
- 
-
-      </section>
+     
 
 
 <section>
