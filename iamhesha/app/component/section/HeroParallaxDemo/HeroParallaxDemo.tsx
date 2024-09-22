@@ -7,96 +7,108 @@ export function HeroParallaxDemo() {
 }
 export const products = [
   {
-    title: "Moonbeam",
-    link: "https://gomoonbeam.com",
+    title: "South Asian Tabale Tennis Competition Web Work Day",
+    link: "https://www.sayttc.com/",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/sayttc.jpeg",
   },
   {
-    title: "Cursor",
-    link: "https://cursor.so",
+    title: "TadHack",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/tadd.jpeg",
   },
   {
-    title: "Rogue",
-    link: "https://userogue.com",
+    title: "South Asian Table Tennis Competition",
+    link: "https://www.sayttc.com/",
     thumbnail:
-      "/images/hy.jpg",
-  },
-
-  {
-    title: "Editorially",
-    link: "https://editorially.org",
-    thumbnail:
-      "/images/hy.jpg",
-  },
-  {
-    title: "Editrix AI",
-    link: "https://editrix.ai",
-    thumbnail:
-      "/images/hy.jpg",
-  },
-  {
-    title: "Pixel Perfect",
-    link: "https://app.pixelperfect.quest",
-    thumbnail:
-      "/images/hy.jpg",
+      "/images/sayttc.jpeg",
   },
 
   {
-    title: "Algochurn",
-    link: "https://algochurn.com",
+    title: "Duothon Team 2024",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/duo.jpeg",
   },
   {
-    title: "Aceternity UI",
-    link: "https://ui.aceternity.com",
+    title: "Diploma In Software Engineering",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/nibm.jpeg",
   },
   {
-    title: "Tailwind Master Kit",
-    link: "https://tailwindmasterkit.com",
+    title: "Duothon",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
-  },
-  {
-    title: "SmartBridge",
-    link: "https://smartbridgetech.com",
-    thumbnail:
-      "/images/hy.jpg",
-  },
-  {
-    title: "Renderwork Studio",
-    link: "https://renderwork.studio",
-    thumbnail:
-      "/images/hy.jpg",
+      "/images/duothon.jpeg",
   },
 
   {
-    title: "Creme Digital",
-    link: "https://cremedigital.com",
+    title: "TadHack 2023",
+    link: "https://youtu.be/VhYeVgs0El8?si=Pst-wBr2aFk-dM98",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/tadde.jpeg",
   },
   {
-    title: "Golden Bells Academy",
-    link: "https://goldenbellsacademy.com",
+    title: "INSL Sabaragamuwa Province",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/insl.jpeg",
   },
   {
-    title: "Invoker Labs",
-    link: "https://invoker.lol",
+    title: "Coders",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/coders.jpeg",
   },
   {
-    title: "E Free Invoice",
-    link: "https://efreeinvoice.com",
+    title: "MORA UX Plora -Finalist",
+    link: "",
     thumbnail:
-      "/images/hy.jpg",
+      "/images/mora.jpeg",
+  },
+  {
+    title: "TadHack - 1st Runners UP",
+    link: "https://youtu.be/VhYeVgs0El8?si=Pst-wBr2aFk-dM98",
+    thumbnail:
+      "/images/tad.jpeg",
+  },
+
+  {
+    title: "Coders - 2023",
+    link: "",
+    thumbnail:
+      "/images/coderr.jpeg",
+  },
+  {
+    title: "INSL-Winners",
+    link: "",
+    thumbnail:
+      "/images/insll.jpeg",
+  },
+  {
+    title: "IEEE Voluntering",
+    link: "",
+    thumbnail:
+      "/images/ieee.jpeg",
+  },
+  {
+    title: "SAYTTC 2024",
+    link: "https://www.sayttc.com/",
+    thumbnail:
+      "/images/say.jpeg",
+  },
+  {
+    title: "Tea Factory visit",
+    link: "",
+    thumbnail:
+      "/images/com.jpeg",
+  },
+  {
+    title: "PearlHack",
+    link: "https://www.pearlhack.lk/",
+    thumbnail:
+      "/images/pearl.jpeg",
   },
 ];
