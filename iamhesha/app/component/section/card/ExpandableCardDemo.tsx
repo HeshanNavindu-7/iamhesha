@@ -4,10 +4,199 @@ import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/hooks/use-outside-click";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBehance, faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBehance, faGithub, faLinkedin, faYoutube} from "@fortawesome/free-brands-svg-icons";
+import router from "next/router";
+
+type Card = {
+  title: string;
+  src: string;
+  description: string;
+  ctaText: string;
+  ctaLink: string;
+  category: string;
+  extraImages?: string[];
+  content: string | (() => React.ReactNode);
+  details?: string;
+  reviews?: { reviewer: string; review: string }[];
+  socialLinks: {
+    youtube?: string;
+    github?: string;
+    behance?: string;
+    linkedin?: string;
+  };
+  technologies?: { name: string; description: string }[];
+  achievements?: { title: string; status: string }[];
+};
+
+const SocialLinks = ({ socialLinks }: { socialLinks: Card["socialLinks"] }) => {
+  return (
+    <div className="social-links flex justify-evenly mt-4 text-white text-xl">
+      {socialLinks.github && (
+        <a href={socialLinks.github} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faGithub}  className="text-white text-xl" />
+        </a>
+      )}
+      {socialLinks.behance && (
+        <a href={socialLinks.behance} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faBehance} className="text-white text-xl"  />
+        </a>
+      )}
+      {socialLinks.linkedin && (
+        <a href={socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faLinkedin}  className="text-white text-xl"  />
+        </a>
+      )}
+      {socialLinks.youtube && (
+        <a href={socialLinks.youtube} target="_blank" rel="noopener noreferrer">
+          <FontAwesomeIcon icon={faYoutube}  className="text-white text-xl" />
+        </a>
+      )}
+    </div>
+  );
+};
+const cards: Card[] = [
+  {
+    title: "AgriConnect 🌱🚀",
+    src: "/images/tadde.jpeg",
+    description: "A digital marketplace mobile application for farmers and buyers.",
+    ctaText: "Learn More",
+    ctaLink: "https://github.com/HeshanNavindu-7/AgriConnect_mobile_app.git",
+    category: "Mobile",
+    extraImages: ["/images/tadd.jpeg", "/images/tads.jpeg"],
+    content: "AgriConnect is a digital marketplace mobile application built using React Native. It connects farmers directly with buyers, enabling fair pricing and personalized crop recommendations through AI-driven insights.",
+    details: "Features 🌟\n\n- Crop Recommendation Tool: AI-powered crop suggestions based on location, soil, and climate.\n- Marketplace: Farmers list produce, negotiate prices, and connect with buyers directly.\n- User-Friendly Interface: Simple, multilingual design for ease of use.",
+    reviews: [
+      ],
+    socialLinks: {
+      github: "https://github.com/HeshanNavindu-7/AgriConnect_mobile_app.git",
+      behance: "https://www.behance.net/iamHesha/",
+      linkedin: "",
+      youtube:"https://youtu.be/VhYeVgs0El8?si=TGKkX6T2rLOoOaLz"
+    },
+    technologies: [
+      { name: "React Native", description: "For building cross-platform mobile apps." },
+      { name: "JavaScript", description: "Core language for React Native app development." },
+      { name: "Axios", description: "For API requests." },
+      { name: "Redux", description: "State management." },
+      { name: "React Navigation", description: "Navigation between screens." }
+    ]
+  },
+  {
+    "title": "Glova innovative AI-powered skincare app🚀",
+    "src": "/images/glova.PNG",
+    "description": "Mobile application that offers personalized skincare routines and product recommendations.",
+    "ctaText": "Learn More",
+    "ctaLink": "https://github.com/Vishwa0416/Glova-Front-end",
+    "category": "Mobile",
+    "extraImages": [
+      "/images/insl.jpeg",
+      "/images/insl1.jpeg"
+    ],
+    "content": "Glova is a groundbreaking skincare app that integrates facial recognition technology and artificial intelligence to offer personalized skincare routines and product recommendations.",
+    "details": "Key Features 🌟\n\n- Facial Recognition Technology: Analyzes and assesses skin types and conditions with a simple scan.\n- AI-Generated Skincare Routines: Generates tailor-made routines based on individual skin analysis.\n- Product Recommendations: Suggests specific products suited to the user's unique skin profile.\n- Real-time Updates and Adjustments: Adapts to changes in skin condition and lifestyle.\n- Education and Insights: Provides valuable insights and updates on skincare science.\n- Privacy and Security: Ensures secure processing and storage of facial recognition data.",
+    "reviews": [
+       ],
+    "socialLinks": {
+      "github": "https://github.com/Vishwa0416/Glova-Front-end",
+      "behance": "",
+      "linkedin": "https://www.linkedin.com/posts/ieee-student-branch-of-susl_ieee-insl23-ypsl-activity-7160104760782548992-bg7w?utm_source=share&utm_medium=member_desktop",
+       "youtube":""
+    },
+    "technologies": [
+      { "name": "Flutter", "description": "Framework for building natively compiled applications for mobile, web, and desktop from a single codebase." },
+      { "name": "Python", "description": "Programming language used for backend development and AI integration." },
+      { "name": "Django", "description": "Web framework for building the app's backend." },
+      { "name": "Machine Learning (ML)", "description": "Technology for analyzing skin conditions and generating skincare routines." },
+      { "name": "Gemini API", "description": "API for integrating facial recognition technology." }
+    ],
+    "achievements": [
+      { "title": "IEEE INSL Sabaragamuwa Province 2023", "status": "Achieved Winner" }
+    ]
+  }
+  ,
+
+  {
+    "title": "Pastry Shop Management System 🚀",
+    "src": "/images/pestry.PNG",
+    "description": "Developed a Java-based system to manage pastry shop operations, allowing admins to handle items, categories, and suppliers effortlessly.",
+    "ctaText": "Learn More",
+    "ctaLink": "https://www.linkedin.com/posts/heshan-7-navindu_java-projectshowcase-codingjourney-activity-7135607367685066752-gaKA?utm_source=share&utm_medium=member_desktop",
+    "category": "Desktop",
+    "extraImages": ["/images/pestry.PNG", "/images/pestry.PNG"],
+    "content": "Developed a Java-based system to manage pastry shop operations, allowing admins to handle items, categories, and suppliers effortlessly. Cashiers can generate bills swiftly, and everyone can enjoy an intuitive dashboard for real-time insights.",
+    "details": "Login System: Role-based access for admin and cashier.\nInventory Management: Add, edit, delete bakery items and categories.\nBilling: Manage bills and generate invoices.\nSupplier Management: Add, edit, and delete supplier details (Admin only).\nCashier Management: Administer cashier details (Admin only).\nReports: Generate reports on sales, inventory, and billing.\nDashboard: Visualize key shop metrics such as daily profits and top-selling items.",
+    "technologies": [
+      { "name": "Java", "description": "Core language for development." },
+      { "name": "MySQL", "description": "Database to store shop data." },
+      { "name": "Java Swing", "description": "User interface design." },
+      { "name": "JasperReports", "description": "For report generation." },
+      { "name": "MVC Architecture", "description": "Application architecture." }
+    ],
+    socialLinks: {
+      github: "https://github.com/HeshanNavindu-7/Pestry-Shop-Management-System.git",
+      behance: "",
+      linkedin: "https://www.linkedin.com/posts/heshan-7-navindu_java-projectshowcase-codingjourney-activity-7135607367685066752-gaKA?utm_source=share&utm_medium=member_desktop",
+       "youtube":""
+    }
+  },
+  {
+    "title": "MedAssist Mobile App 🚀",
+    "src": "/images/medassist.PNG",
+    "description": "An AI-based mobile app for simplifying medical reports and providing personalized healthcare guidance.",
+    "ctaText": "Learn More",
+    "ctaLink": "https://github.com/HeshanNavindu-7/MedAssist-frontend.git",
+    "category": "Mobile",
+    "extraImages": ["/images/medassist.PNG", "/images/medassist.PNG"],
+    "content": "Developed an AI-based mobile app for simplifying medical reports and providing personalized healthcare guidance. Features include medical report analysis, doctor recommendations, an AI chatbot for health information, and image classification for early diagnosis through scan analysis. Also integrated a feedback portal for rating healthcare providers.",
+    "details": "Medical Report Analysis: Upload and analyze medical reports with easy-to-understand explanations. 📄🔍\nDoctor Recommendations: Personalized healthcare provider suggestions based on the user’s medical condition. 🏥👨‍⚕️👩‍⚕️\nAI Chatbot: A virtual assistant offering healthcare information and answering user questions. 🤖💬\nImage Classification: Analyze CT, X-ray, MRI, and PET scans to provide preliminary diagnoses. 🩺🖼️\nUser Feedback Portal: Users can rate and provide feedback on their healthcare experiences. ⭐📝",
+    "technologies": [
+      { "name": "Flutter", "description": "Frontend for cross-platform mobile app development." },
+      { "name": "Dart", "description": "Primary programming language for Flutter." },
+      { "name": "Django", "description": "Backend framework for APIs, authentication, and data processing." },
+      { "name": "Firebase", "description": "Handles user authentication and real-time updates." },
+      { "name": "REST API", "description": "Integrates Django backend services for report analysis, doctor recommendations, and chatbot functionality." }
+    ],
+     "socialLinks": {
+      "github": "https://github.com/HeshanNavindu-7/MedAssist-frontend.git",
+      "behance": "",
+      "linkedin": "https://www.linkedin.com/posts/heshan-7-navindu_medassist-healthcaretech-mobileappdevelopment-activity-7234984783267688448-11HD?utm_source=share&utm_medium=member_desktop",
+       "youtube":""
+    }
+  },
+  {
+    "title": "South Asian Youth Table Tennis Championship Website 🏓",
+    "src": "/images/say.jpeg",
+    "description": "Official website for the South Asian Youth Table Tennis Championship (SAYTTC), providing event information, live scores, dynamic leaderboard, and more.",
+    "ctaText": "Visit Website",
+    "ctaLink": "https://www.sayttc.com/",
+    "category": "Web",
+    "extraImages": ["/images/say.jpeg", "/images/sayttc.jpeg"],
+    "content": "This project is the official website for the South Asian Youth Table Tennis Championship (SAYTTC), held in Sri Lanka. The website provides event information, real-time live scores, a dynamic leaderboard, updates, and more for the tournament.",
+    "details": "Live Score Updates: Real-time match scores and results.\nLeaderboard: Dynamic leaderboard to track the standings and performance of teams throughout the tournament.\nResponsive Design: Optimized for a seamless experience across all devices.\nFirebase Integration: Secure, scalable data storage and hosting using Firebase.",
+    "technologies": [
+      { "name": "React.js", "description": "Frontend development framework for building interactive UI." },
+      { "name": "Firebase Hosting", "description": "For hosting the website with fast and secure delivery." },
+      { "name": "Firebase Firestore", "description": "Real-time database for live score and leaderboard updates." },
+      { "name": "Custom Domain", "description": "Integrated with https://www.sayttc.com for official tournament access." }
+    ],
+    "socialLinks": {
+      "github": "https://github.com/HeshanNavindu-7/South-Asian-Youth-Table-Tennis-Championship.git",
+      "behance": "",
+      "linkedin": "https://www.linkedin.com/posts/heshan-7-navindu_officially-launched-one-of-the-website-activity-7168717098800672768-kGdo?utm_source=share&utm_medium=member_desktop",
+       "youtube":"https://www.linkedin.com/posts/heshan-7-navindu_officially-launched-one-of-the-website-activity-7168717098800672768-kGdo?utm_source=share&utm_medium=member_desktop"
+    }
+  }
+  ,
+  
+  
+ 
+  // Add more card objects here
+];
+
+
 
 export function ExpandableCardDemo() {
-  const [active, setActive] = useState<(typeof cards)[number] | boolean | null>(null);
+  const [active, setActive] = useState<Card | null>(null);
   const [filter, setFilter] = useState("All");
   const id = useId();
   const ref = useRef<HTMLDivElement>(null);
@@ -15,11 +204,11 @@ export function ExpandableCardDemo() {
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setActive(false);
+        setActive(null);
       }
     }
 
-    if (active && typeof active === "object") {
+    if (active) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
@@ -31,8 +220,8 @@ export function ExpandableCardDemo() {
 
   useOutsideClick(ref, () => setActive(null));
 
-  const filteredCards = filter === "All" ? cards : cards.filter(card => card.category === filter);
-
+  const filteredCards = filter === "All" ? cards : cards.filter((card) => card.category === filter);
+  
   return (
     <>
       {/* Filter Buttons */}
@@ -48,209 +237,182 @@ export function ExpandableCardDemo() {
         ))}
       </div>
 
+      {/* Overlay when active */}
       <AnimatePresence>
-        {active && typeof active === "object" && (
+        {active && (
           <motion.div
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            animate={{ opacity: 0.7 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-gray-900 h-full w-full z-10"
+            className="fixed inset-0  h-full w-full z-10"
           />
         )}
       </AnimatePresence>
+
+      {/* Expanded Card View */}
       <AnimatePresence>
-        {active && typeof active === "object" ? (
-          <div className="fixed inset-0  grid place-items-center z-[100]">
-            <motion.button
-              key={`button-${active.title}-${id}`}
-              layout
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0, transition: { duration: 0.05 } }}
-              className="flex absolute top-2 right-2 lg:hidden items-center justify-center bg-gray-900 rounded-full h-6 w-6"
-              onClick={() => setActive(null)}
-            >
-              <CloseIcon />
-            </motion.button>
+        {active && (
+          <div className="fixed inset-0 grid place-items-center z-[120]">
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-gray-900 dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[1000px] h-full md:h-fit md:max-h-[90%] flex flex-col bg-gray-950 sm:rounded-3xl overflow-hidden"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
                   priority
-                  width={200}
+                  width={400}
                   height={200}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 lg:h-80 sm:rounded-tr-lg sm:rounded-tl-lg object-cover object-top"
+                  className="w-full h-80 object-cover object-top"
                 />
               </motion.div>
 
-              <div>
-                <div className="flex justify-between items-start p-4">
+              <div className="flex-1 overflow-auto p-4">
+                <div className="flex justify-between items-start mb-4">
                   <div>
-                    <motion.h3
+                    <motion.h1
                       layoutId={`title-${active.title}-${id}`}
-                      className="font-medium text-neutral-700 dark:text-neutral-200 text-base"
+                      className="font-bold text-white text-xl"
                     >
                       {active.title}
-                    </motion.h3>
+                    </motion.h1>
                     <motion.p
                       layoutId={`description-${active.description}-${id}`}
-                      className="text-neutral-600 dark:text-neutral-400 text-base"
+                      className="text-neutral-400 text-base"
                     >
                       {active.description}
                     </motion.p>
                   </div>
 
-                  <motion.a
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                  <button
+                    className="absolute top-2 right-2 lg:hidden p-2 bg-red-500 rounded-full"
+                    onClick={() => setActive(null)}
+                  >dfd
+                    {/* <FontAwesomeIcon icon={faTimes} className="text-white" /> */}
+                  </button>
+
+                  <a
                     href={active.ctaLink}
                     target="_blank"
-                    className="px-4 py-3 text-sm rounded-full font-bold bg-[#3533cd] text-white"
+                    className="px-4 py-2 text-sm rounded-full font-bold bg-[#3533cd] text-white"
                   >
                     {active.ctaText}
-                  </motion.a>
+                  </a>
                 </div>
-                <div className="pt-4 relative px-4">
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-xs md:text-sm lg:text-base h-40 md:h-fit pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [mask:linear-gradient(to_bottom,white,white,transparent)] [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch]"
-                  >
-                    {typeof active.content === "function" ? active.content() : active.content}
-                  </motion.div>
+
+                {/* Additional Images */}
+                <div className="flex flex-wrap gap-4 mb-4">
+                  {active.extraImages?.map((imageSrc, index) => (
+                    <Image
+                      key={index}
+                      src={imageSrc}
+                      width={80}
+                      height={80}
+                      alt={`Extra image ${index + 1}`}
+                      className="w-32 h-32 object-cover rounded-lg"
+                    />
+                  ))}
+                </div>
+
+                {/* Details Section */}
+                {active.details && (
+                  <div className="text-white mb-4">
+                    <h4 className="font-bold text-lg">Features & Details</h4>
+                    <p>{active.details}</p>
+                  </div>
+                )}
+
+                {/* Technologies Used Section */}
+                {active.technologies && (
+                  <div className="text-neutral-400 mb-4">
+                    <h4 className="font-bold text-lg">Technologies Used</h4>
+                    <ul>
+                      {active.technologies.map((tech, index) => (
+                        <li key={index} className="mb-2">
+                          <strong>{tech.name}:</strong> {tech.description}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+          {/* Achievements Section */}
+{active.achievements && (
+  <div className="text-neutral-400 mb-4">
+    <h4 className="font-bold text-lg">Achievements</h4>
+    <ul>
+      {active.achievements.map((achievement, index) => (
+        <li key={index} className="mb-2">
+          <strong>{achievement.title}:</strong> {achievement.status}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+
+                {/* Social Links Section */}
+                <div className="flex justify-between mt-4">
+                  <a href={active.socialLinks.github} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faGithub} className="text-white text-xl" />
+                  </a>
+                  <a href={active.socialLinks.behance} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faBehance} className="text-white text-xl" />
+                  </a>
+                  <a href={active.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
+                    <FontAwesomeIcon icon={faLinkedin} className="text-white text-xl" />
+                  </a>
                 </div>
               </div>
             </motion.div>
           </div>
-        ) : null}
+        )}
       </AnimatePresence>
 
-      {/* Cards Layout */}
-      <ul className="max-w-6xl mx-auto w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {/* Card List */}
+ {/* Card List */}
+<div className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 p-4 mx-12">
   {filteredCards.map((card) => (
     <motion.div
-      layoutId={`card-${card.title}-${id}`}
       key={card.title}
       onClick={() => setActive(card)}
-      className="p-4 flex flex-col bg-gray-900 hover:bg-gray-950 dark:hover:bg-gray-950 rounded-xl cursor-pointer border border-white"
+      className="cursor-pointer bg-gray-800 p-4 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+      layoutId={`card-${card.title}-${id}`}
     >
-      <div className="flex gap-4 flex-col w-full">
-        <motion.div layoutId={`image-${card.title}-${id}`}>
-          <Image
-            width={100}
-            height={100}
-            src={card.src}
-            alt={card.title}
-            className="h-60 w-full rounded-lg object-cover object-top"
-          />
-        </motion.div>
-        <div className="flex justify-center items-center flex-col">
-          <motion.h3
-            layoutId={`title-${card.title}-${id}`}
-            className="font-medium text-white dark:text-neutral-200 text-center md:text-left text-base"
-          >
-            {card.title}
-          </motion.h3>
-          <motion.p
-            layoutId={`description-${card.description}-${id}`}
-            className="text-neutral-300 dark:text-neutral-400 text-center md:text-left text-base"
-          >
-            {card.description}
-          </motion.p>
-        </div>
-
-        {/* Social Media Icons Section */}
-        <div className="flex justify-center space-x-4 mt-4">
-          <a href={card.socialLinks.github} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faGithub} className="text-white hover:text-gray-400" size="lg" />
-          </a>
-          <a href={card.socialLinks.behance} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faBehance} className="text-white hover:text-gray-400" size="lg" />
-          </a>
-          <a href={card.socialLinks.linkedin} target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faLinkedin} className="text-white hover:text-gray-400" size="lg" />
-          </a>
-        </div>
+      <Image
+        src={card.src}
+        width={400}
+        height={200}
+        alt={card.title}
+        className="w-full h-40 object-cover rounded-lg mb-2"
+      />
+      <h2 className="font-bold text-white text-center text-xl">{card.title}</h2>
+      <p className="text-neutral-400">{card.description}</p>
+      <div className="">
+      <SocialLinks   socialLinks={card.socialLinks} />
       </div>
+      
+     
     </motion.div>
-  ))}
-</ul>
 
+      
+  ))}
+     
+</div>
+ {/* See More Button */}
+ {filteredCards.length > 2 && (
+        <div className="flex justify-center text-center my-4">
+          <button
+            onClick={() => router.push("/projects")} // Navigates to the full project page
+            className="px-6 py-2 bg-[#3533cd] text-white rounded-full hover:bg-[#1f1c85] transition-colors"
+          >
+            See More Projects
+          </button>
+        </div>
+      )}
 
     </>
   );
 }
-
-export const CloseIcon = () => {
-  return (
-    <motion.svg
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0, transition: { duration: 0.05 } }}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="h-4 w-4 text-black"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-      <path d="M18 6l-12 12" />
-      <path d="M6 6l12 12" />
-    </motion.svg>
-  );
-};
-
-// Card Data
-const cards = [
-  {
-    description: "AgriConnect is a digital marketplace mobile application",
-    title: "AgriConnect 🌱🚀",
-    src: "/images/hy.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    category: "Mobile",
-    socialLinks: {
-      github: "https://github.com/AgriConnect",
-      behance: "https://behance.net/AgriConnect",
-      linkedin: "https://linkedin.com/in/AgriConnect",
-    },
-    content: () => (
-      <p>
-        AgriConnect is a digital marketplace mobile application. It connects farmers directly with buyers, enabling fair pricing and personalized crop recommendations through AI-driven insights.
-      </p>
-    ),
-  },
-  {
-    description: "Babbu Maan",
-    title: "Mitran Di Chhatri",
-    src: "/default-image.jpg",
-    ctaText: "Visit",
-    ctaLink: "https://ui.aceternity.com/templates",
-    category: "Mobile",
-    socialLinks: {
-      github: "https://github.com/MitranDiChhatri",
-      behance: "https://behance.net/MitranDiChhatri",
-      linkedin: "https://linkedin.com/in/MitranDiChhatri",
-    },
-    content: () => (
-      <p>
-        Babbu Maan, a legendary Punjabi singer, is renowned for his soulful voice and profound lyrics.
-      </p>
-    ),
-  },
-  // More cards...
-];
