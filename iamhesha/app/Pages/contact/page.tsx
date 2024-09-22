@@ -1,5 +1,6 @@
 'use client'
 import Navbar from "@/app/component/Navigation/Navbar";
+import Footer from "@/app/component/section/Footer/Footer";
 import { useState, ChangeEvent, FormEvent } from "react";
 
 interface FormData {
@@ -28,8 +29,6 @@ export default function Contact() {
     
     // Example logic for handling form data (e.g., sending to a backend)
     try {
-      // Replace this with your actual form submission logic
-      // e.g., using a service like Formspree, EmailJS, or a custom Next.js API route
       console.log("Form submitted", formData);
 
       // Reset form fields after successful submission
@@ -47,24 +46,26 @@ export default function Contact() {
   };
 
   return (
-    <div className="">
-      <Navbar/>
-      <h2 className="text-4xl text-white font-bold mb-6">Contact Me</h2>
+    <div className="flex min-h-screen flex-col items-center justify-between bg-black">
+      <div className="w-full flex justify-center mt-8">
+        <Navbar/>
+      </div>
+      <h2 className="text-4xl text-white mt-8 font-bold mb-6">Contact Me</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Name</label>
+        <div className="w-full">
+          <label className="block text-sm font-medium text-gray-100">Name</label>
           <input
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
             required
-            className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="mt-1 block w-96 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Your name"
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Email</label>
+        <div className="w-full">
+          <label className="block text-sm font-medium text-gray-100">Email</label>
           <input
             type="email"
             name="email"
@@ -75,8 +76,8 @@ export default function Contact() {
             placeholder="Your email"
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Subject</label>
+        <div className="w-full">
+          <label className="block text-sm font-medium text-gray-100">Subject</label>
           <input
             type="text"
             name="subject"
@@ -87,8 +88,8 @@ export default function Contact() {
             placeholder="Subject"
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700">Message</label>
+        <div className="w-full">
+          <label className="block text-sm font-medium text-gray-100">Message</label>
           <textarea
             name="message"
             value={formData.message}
@@ -96,19 +97,20 @@ export default function Contact() {
             required
             className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
             placeholder="Your message"
-            rows={4}
+            rows={5} // Increased rows for a bigger message box
           />
         </div>
         <div>
           <button
             type="submit"
-            className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            className="w-full mb-12 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#3533cd] hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
           >
             Send Message
           </button>
         </div>
       </form>
       {formStatus && <p className="mt-4 text-green-500">{formStatus}</p>}
+      <Footer/>
     </div>
   );
 }

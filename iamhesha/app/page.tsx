@@ -17,6 +17,7 @@ import { HeroParallaxDemo } from "./component/section/HeroParallaxDemo/HeroParal
 
 import Footer from "./component/section/Footer/Footer";
 import { Button } from "./component/ui/moving-border";
+import router from "next/router";
 
 
 export default function Home() {
@@ -68,19 +69,24 @@ software engineering.`;
         {/* Fixed Left Section */}
         <div className="-ml-64  mt-40">
           <h1 className="font-bold text-3xl ">
-            I&apos;m <span >Heshan Navindu</span>,<br />
+            I&apos;m <span className="text-[#3533cd]" >Heshan Navindu ,</span><br />
           </h1>
           <div className="mt-2 font-bold">
             <FlipWords words={words}></FlipWords> <br />
           </div>
           <div className="flex gap-4 mt-2 mb-6">
           <Button
-        borderRadius="1.75rem"
-        className="text-sm text-white dark:bg-slate-900  dark:text-white border-neutral-200 dark:border-slate-800"
-      >
-        Downloard CV
-      </Button>
-<button  className=" rounded-3xl border-white border-x-1 px-5 bg-orange-400 text-white font-semibold">
+      as="a" // Make it behave like a link
+      href="/CV.pdf" // Ensure the correct path to the PDF
+      download // Correct spelling
+      borderRadius="1.75rem"
+      className="text-sm text-white dark:bg-slate-900 dark:text-white border-neutral-200 dark:border-slate-800"
+    >
+      Download CV
+    </Button>
+<button 
+  onClick={() => router.push("/Pages/projects")} 
+className=" rounded-3xl border-white border-x-1 px-5 bg-[#3533cd] text-white font-semibold">
 Hire me
 </button>
             
@@ -136,12 +142,12 @@ Hire me
     </Vortex>
 
       {/* IAMHESHA Section */}
-      <div className="h-[20rem] flex items-center justify-center">
+      <div id="about" className="h-[20rem] flex items-center justify-center">
         <TextHoverEffect text="IAMHESHA" />
       </div>
 
       {/* About Me Section */}
-      <section id="about" className="w-full mt-4  text-white">
+      <section  className="w-full mt-4  text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-5xl font-bold mb-6 text-center">About Me</h2>
           <TextGenerateEffect words={words_about} />
@@ -181,7 +187,7 @@ Hire me
 <section>
 <HeroParallaxDemo/>
 </section>
-<section>
+<section id="youtube">
 <VideoSection />
 </section>
 <Footer/>

@@ -1,11 +1,13 @@
-"use client";
+"use client"
 import Image from "next/image";
 import React, { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useOutsideClick } from "@/app/hooks/use-outside-click";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance, faGithub, faLinkedin, faYoutube} from "@fortawesome/free-brands-svg-icons";
-import router from "next/router";
+
+import Link from "next/link";
+
 
 type Card = {
   title: string;
@@ -230,7 +232,7 @@ export function ExpandableCardDemo() {
           <button
             key={category}
             onClick={() => setFilter(category)}
-            className={`px-4 py-2 rounded-lg ${filter === category ? "bg-[#3533cd] text-white" : "bg-gray-900"}`}
+            className={`px-4 py-2 rounded-lg ${filter === category ? "bg-[#3533cd] text-white" : "bg-gray-900 text-white"}`}
           >
             {category}
           </button>
@@ -403,14 +405,13 @@ export function ExpandableCardDemo() {
 </div>
  {/* See More Button */}
  {filteredCards.length > 2 && (
-        <div className="flex justify-center text-center my-4">
-          <button
-            onClick={() => router.push("/projects")} // Navigates to the full project page
-            className="px-6 py-2 bg-[#3533cd] text-white rounded-full hover:bg-[#1f1c85] transition-colors"
-          >
+ <div className="flex justify-center text-center my-4">
+      <div className="flex justify-center text-center my-4">
+          <Link href="/Pages/projects" className="px-6 py-2 rounded-xl bg-[#3533cd] text-white  hover:bg-[#1f1c85] transition-colors">
             See More Projects
-          </button>
+          </Link>
         </div>
+</div>
       )}
 
     </>

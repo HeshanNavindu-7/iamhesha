@@ -5,14 +5,14 @@ import { HoverBorderGradient } from "../ui/hover-border-gradient";
 const Navbar = () => {
   const leftLinks = [
     { id: 1, link: "Home", href: "/" },
-    { id: 2, link: "About", href: "#about" },
-    { id: 3, link: "Services", href: "/services" },
+    { id: 2, link: "About", href: "/#about" },
+    { id: 3, link: "Projects", href: "/#projects" },
   ];
 
   const rightLinks = [
-    { id: 3, link: "Skills", href: "/skills" },
-    { id: 4, link: "Projects", href: "/Pages/project" },
-    { id: 5, link: "Contact", href: "/Pages/contact" },
+    { id: 3, link: "Creations", href: "/#youtube" },
+    { id: 4, link: "Contact", href: "/Pages/contact" },
+    { id: 5, link: "Downlord", href: "/Pages/contact" },
   ];
 
   return (
@@ -25,7 +25,7 @@ const Navbar = () => {
     <div className="bg-gray-800 text-white rounded-3xl w-full h-12  flex justify-between items-center px-4">
       <ul className="mx-24 flex space-x-24">
         {leftLinks.map(({ id, link, href }) => (
-          <li key={id} className="cursor-pointer hover:text-yellow-400">
+          <li key={id} className="cursor-pointer font-bold hover:text-[#3533cd]">
             <Link href={href}>{link}</Link>
           </li>
         ))}
@@ -43,7 +43,7 @@ const Navbar = () => {
 
       <ul className=" mx-24 flex space-x-24">
         {rightLinks.map(({ id, link, href }) => (
-          <li key={id} className="cursor-pointer hover:text-yellow-400">
+          <li key={id} className="cursor-pointer  font-bold hover:text-[#3533cd]">
             <Link href={href}>{link}</Link>
           </li>
         ))}
