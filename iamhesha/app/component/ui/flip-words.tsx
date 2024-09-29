@@ -57,11 +57,10 @@ export const FlipWords = ({
           scale: 2,
           position: "absolute",
         }}
-        // Added fixed height and width
         className={cn(
-          "z-8 inline-block relative text-left text-white-900 dark:text-neutral-100 px-2",
+          "z-8 inline-block relative text-left text-white-900 dark:text-neutral-100",
           className,
-          "h-16 w-auto text-6xl" // Fixed height
+          "h-16 w-auto text-4xl sm:text-5xl md:text-5xl lg:text-6xl" // Responsive font sizes
         )}
         key={currentWord}
       >

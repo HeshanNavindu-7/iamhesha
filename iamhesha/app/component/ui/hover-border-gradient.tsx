@@ -25,14 +25,17 @@ export function HoverBorderGradient({
   const [hovered, setHovered] = useState<boolean>(false);
   const [direction, setDirection] = useState<Direction>("TOP");
 
-  const rotateDirection = useCallback((currentDirection: Direction): Direction => {
-    const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
-    const currentIndex = directions.indexOf(currentDirection);
-    const nextIndex = clockwise
-      ? (currentIndex - 1 + directions.length) % directions.length
-      : (currentIndex + 1) % directions.length;
-    return directions[nextIndex];
-  }, [clockwise]);
+  const rotateDirection = useCallback(
+    (currentDirection: Direction): Direction => {
+      const directions: Direction[] = ["TOP", "LEFT", "BOTTOM", "RIGHT"];
+      const currentIndex = directions.indexOf(currentDirection);
+      const nextIndex = clockwise
+        ? (currentIndex - 1 + directions.length) % directions.length
+        : (currentIndex + 1) % directions.length;
+      return directions[nextIndex];
+    },
+    [clockwise]
+  );
 
   const movingMap: Record<Direction, string> = {
     TOP: "radial-gradient(20.7% 50% at 50% 0%, hsl(0, 0%, 100%) 0%, rgba(255, 255, 255, 0) 100%)",
@@ -52,26 +55,30 @@ export function HoverBorderGradient({
     }, duration * 1000);
 
     return () => clearInterval(interval);
-  }, [hovered, duration, rotateDirection]); // Removed clockwise from dependencies
+  }, [hovered, duration, rotateDirection]);
 
   return (
     <Tag
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
-        "relative flex rounded-full border content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit",
+        // Responsive classes added for different screen sizes
+        "relative flex rounded-full border content-center bg-black/20 hover:bg-black/10 transition duration-500 dark:bg-white/20 items-center flex-col flex-nowrap gap-6 sm:gap-8 md:gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit sm:w-auto lg:w-fit",
         containerClassName
       )}
       {...props}
     >
       <div
         className={cn(
-          "w-auto text-red-950 z-10 bg-black px-4 py-2 rounded-[inherit]",
+          // Adjust text size, padding, and background color based on screen size
+          "w-auto text-red-950 z-10 bg-black px-2 py-1 sm:px-4 sm:py-2 rounded-[inherit] text-sm sm:text-base md:text-lg",
           className
         )}
       >
         {children}
       </div>
+
+      {/* Animated gradient background */}
       <motion.div
         className={cn(
           "flex-none inset-0 overflow-hidden absolute z-0 rounded-[inherit]"
@@ -90,6 +97,8 @@ export function HoverBorderGradient({
         }}
         transition={{ ease: "linear", duration: duration ?? 1 }}
       />
+
+      {/* Background container */}
       <div className="bg-black absolute z-1 flex-none inset-[2px] rounded-[100px]" />
     </Tag>
   );

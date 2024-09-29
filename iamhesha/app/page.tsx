@@ -54,92 +54,93 @@ software engineering.`;
 
   
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-   <Vortex
-      backgroundColor="black"
-      rangeY={700}
-      particleCount={300}
-      baseHue={120}
-      className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
-    >
-      <div className="w-full flex justify-center mt-8">
-        <Navbar />
+    <main className="flex flex-col items-center justify-between max-w-screen overflow-x-hidden">
+  <Vortex
+  backgroundColor="black"
+  rangeY={700}
+  particleCount={300}
+  baseHue={120}
+  className="flex items-center flex-col justify-center px-4 sm:px-8 md:px-10 py-4 w-full h-full"
+>
+  <div className="w-full flex justify-center mt-8">
+    <Navbar />
+  </div>
+  <div className="text-white relative flex flex-col md:items-start md:ml-40">
+    {/* Fixed Left Section */}
+    <div className="mt-24 md:mt-40  md:-ml-48 text-center md:text-left">
+      <h1 className="font-bold text-2xl sm:text-3xl">
+        I&apos;m <span className="text-[#3533cd]">Heshan Navindu ,</span><br />
+      </h1>
+      <div className="mt-2 font-bold">
+        <FlipWords words={words} /><br />
       </div>
-      <div className=" text-white relative ml-80">
-        {/* Fixed Left Section */}
-        <div className="-ml-64  mt-40">
-          <h1 className="font-bold text-3xl ">
-            I&apos;m <span className="text-[#3533cd]" >Heshan Navindu ,</span><br />
-          </h1>
-          <div className="mt-2 font-bold">
-            <FlipWords words={words}></FlipWords> <br />
-          </div>
-          <div className="flex gap-4 mt-2 mb-6">
-          <Button
-      as="a" // Make it behave like a link
-      href="/CV.pdf" // Ensure the correct path to the PDF
-      download // Correct spelling
-      borderRadius="1.75rem"
-      className="text-sm text-white dark:bg-slate-900 dark:text-white border-neutral-200 dark:border-slate-800"
-    >
-      Download CV
-    </Button>
-<button 
-  onClick={() => router.push("/Pages/projects")} 
-className=" rounded-3xl border-white border-x-1 px-5 bg-[#3533cd] text-white font-semibold">
-Hire me
-</button>
-            
-          </div>
-
-          {/* Social Media Icons */}
-          <div className="flex gap-12 mt-8 text-white">
-  <a
-    href="https://www.facebook.com/heshan.navindu?mibextid=ZbWKwL"
-    className="text-white text-4xl transition duration-300 ease-in-out hover:text-blue-600"
-  >
-    <FaFacebookF />
-  </a>
-  <a
-    href="https://www.behance.net/iamHesha/"
-    className="text-white text-4xl transition duration-300 ease-in-out hover:text-blue-400"
-  >
-    <FaBehance />
-  </a>
-  <a
-    href="https://www.youtube.com/@iamHesha"
-    className="text-white text-4xl transition duration-300 ease-in-out hover:text-red-600"
-  >
-    <FaYoutube />
-  </a>
-  <a
-    href="https://www.linkedin.com/in/heshan-7-navindu/"
-    className="text-white text-4xl transition duration-300 ease-in-out hover:text-blue-700"
-  >
-    <FaLinkedinIn />
-  </a>
-  <a
-    href="https://github.com/HeshanNavindu-7"
-    className="text-white text-4xl transition duration-300 ease-in-out hover:text-gray-800"
-  >
-    <FaGithub />
-  </a>
-</div>
-
-        </div>
-
-        {/* Right Section with Image */}
-        <div className="ml-72 -mt-96 ">
-          <Image
-            src="/images/hero1.png"
-            alt="Heshan Navindu"
-            width={600}
-            height={600}
-            className="rounded-lg"
-          />
-        </div>
       </div>
-    </Vortex>
+      <div className="flex flex-row md:flex-row gap-4 md:mt-8 mb-3 md:-ml-48 items-center justify-center">
+        <Button
+          as="a" // Make it behave like a link
+          href="/CV.pdf" // Ensure the correct path to the PDF
+          download // Correct spelling
+          borderRadius="1.75rem"
+          className="text-sm text-white dark:bg-slate-900 dark:text-white border-neutral-200 dark:border-slate-800"
+        >
+          Download CV
+        </Button>
+        <button
+          onClick={() => router.push("/Pages/projects")}
+          className="w-40 h-14 rounded-3xl border-white border-x-1 px-5 bg-[#3533cd] text-white font-semibold"
+        >
+          Hire me
+        </button>
+      </div>
+
+      {/* Social Media Icons */}
+      <div className="flex flex-wrap justify-center gap-8 mt-4 md:-ml-48 text-white">
+        <a
+          href="https://www.facebook.com/heshan.navindu?mibextid=ZbWKwL"
+          className="text-white text-3xl sm:text-4xl transition duration-300 ease-in-out hover:text-blue-600"
+        >
+          <FaFacebookF />
+        </a>
+        <a
+          href="https://www.behance.net/iamHesha/"
+          className="text-white text-3xl sm:text-4xl transition duration-300 ease-in-out hover:text-blue-400"
+        >
+          <FaBehance />
+        </a>
+        <a
+          href="https://www.youtube.com/@iamHesha"
+          className="text-white text-3xl sm:text-4xl transition duration-300 ease-in-out hover:text-red-600"
+        >
+          <FaYoutube />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/heshan-7-navindu/"
+          className="text-white text-3xl sm:text-4xl transition duration-300 ease-in-out hover:text-blue-700"
+        >
+          <FaLinkedinIn />
+        </a>
+        <a
+          href="https://github.com/HeshanNavindu-7"
+          className="text-white text-3xl sm:text-4xl transition duration-300 ease-in-out hover:text-gray-800"
+        >
+          <FaGithub />
+        </a>
+      </div>
+    
+
+    {/* Right Section with Image */}
+    <div className="mt-10 md:ml-96 md:-mt-96">
+      <Image
+        src="/images/hero1.png"
+        alt="Heshan Navindu"
+        width={600}
+        height={600}
+        className="rounded-lg"
+      />
+    </div>
+  </div>
+</Vortex>
+
 
       {/* IAMHESHA Section */}
       <div id="about" className="h-[20rem] flex items-center justify-center">
