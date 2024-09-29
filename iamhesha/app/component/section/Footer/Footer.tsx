@@ -2,37 +2,32 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white  w-full">
+    <footer className="bg-gray-800 text-white w-full">
       <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
         {/* Quick Links */}
         <div className="mb-4 md:mb-0">
-          <h4 className="font-bold text-lg">Quick Links</h4>
-          <ul className="mt-2 space-y-2">
+          <h4 className="font-bold text-center text-lg">Quick Links</h4>
+          <ul className="mt-2 flex space-x-4 ">
             <li>
-              <Link href="/">
-                Home
-              </Link>
+              <Link href="/">Home</Link>
             </li>
             <li>
-              <Link href="/about">
-                About
-              </Link>
+              <Link href="/about">About</Link>
             </li>
             <li>
-              <Link href="/contact">
-                Contact
-              </Link>
+              <Link href="/contact">Contact</Link>
             </li>
             <li>
-              <Link href="/projects">
-                Projects
-              </Link>
+              <Link href="/projects">Projects</Link>
             </li>
           </ul>
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex space-x-4">
+       <div className='mb-4 md:mb-0'>
+       <h4 className="font-bold text-center text-lg ">Social Links</h4>
+        <div className="flex space-x-4 mb-4 md:mb-0">
+    
           <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
             <svg fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
               <path d="M23 3a10.9 10.9 0 01-3.14 1.53A4.48 4.48 0 0016 2a4.48 4.48 0 00-4.49 4.49v.49A12.94 12.94 0 013 4s-4 9 5 13a13.11 13.11 0 01-8 2c11 6 22 0 22-13a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z" />
@@ -50,12 +45,10 @@ export default function Footer() {
           </a>
         </div>
       </div>
-
-  
-
+      </div>
       {/* Footer Bottom Text */}
       <div className="text-center text-gray-400 py-4">
-        <p>&copy; {new Date().getFullYear()} Your Portfolio. All rights reserved.</p>
+        <p className="text-sm">&copy; {new Date().getFullYear()} iamHesha Portfolio. All rights reserved.</p>
       </div>
     </footer>
   );
