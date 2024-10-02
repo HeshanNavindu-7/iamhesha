@@ -24,6 +24,7 @@ export default function RootLayout({
         <meta name="description" content="iamhesha: A leading web developer specializing in creating responsive and optimized websites for top search rankings." />
         <meta name="keywords" content="Web Development, SEO, Responsive Websites, Frontend Development, Next.js" /> {/* Add relevant keywords */}
         <meta name="author" content="iamhesha" />
+        <meta name="google-site-verification" content="mSlSxGnHNBzT4FFFbquLWXaqxxWCPgYGhqP0TB7ZTJE" />
 
         {/* Open Graph Meta Tags (for social sharing) */}
         <meta property="og:title" content="iamhesha | Heshan Navindu" />
