@@ -143,7 +143,7 @@ software engineering.`;
 
 
       {/* IAMHESHA Section */}
-      <div id="about" className="h-[20rem] flex items-center justify-center">
+      <div id="about" className="h-[20rem] font-bold flex items-center justify-center">
         <TextHoverEffect text="IAMHESHA" />
       </div>
 

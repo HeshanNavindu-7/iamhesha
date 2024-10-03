@@ -103,14 +103,23 @@ export const HeroParallax = ({
 
 export const Header = () => {
   return (
-    <div className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full  left-0 top-0">
-      <h1 className="text-2xl md:text-7xl font-bold text-white">
-      Milestones and Meaningful Contributions
-      </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 text-neutral-200">
-      A reflection of both my professional accomplishments and the impact of my volunteer work. These milestones showcase my commitment to excellence, continuous growth, and giving back to the community
-      </p>
-    </div>
+    <div className="max-w-7xl relative mx-auto py-10 sm:py-20 md:py-40 px-4 w-full left-0 top-0">
+    <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-bold text-center text-white leading-tight">
+      Milestones and Meaningful
+      <br /> Contributions
+    </h1>
+    <p className="text-sm sm:text-base md:text-lg lg:text-xl mt-4 sm:mt-6 md:mt-8 text-center text-neutral-200 mx-2 sm:mx-4 md:mx-8 leading-relaxed break-words max-w-full">
+  A reflection of both my professional accomplishments
+  <span className="block sm:hidden"><br /></span>
+  and the impact of my volunteer work.
+  <span className="block sm:hidden"><br /></span>
+  These milestones showcase my commitment to excellence,
+  <span className="block sm:hidden"><br /></span>
+  continuous growth, and giving back to the community.
+</p>
+
+  </div>
+  
   );
 };
 
