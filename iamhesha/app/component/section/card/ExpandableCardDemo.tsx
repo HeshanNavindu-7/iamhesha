@@ -264,10 +264,10 @@ export function ExpandableCardDemo() {
                 <Image
                   priority
                   width={400}
-                  height={200}
+                  height={100}
                   src={active.src}
                   alt={active.title}
-                  className="w-full h-80 object-cover object-top"
+                  className="w-full h-44 object-cover object-top"
                 />
               </motion.div>
 

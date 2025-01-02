@@ -17,7 +17,7 @@ import { HeroParallaxDemo } from "./component/section/HeroParallaxDemo/HeroParal
 
 import Footer from "./component/section/Footer/Footer";
 import { Button } from "./component/ui/moving-border";
-import router from "next/router";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
 for web, mobile, and desktop development, and a keen interest in AI/ML. An energetic team player
 who thrives in dynamic environments, eager to contribute skills and gain hands-on experience in
 software engineering.`;
-
+const router = useRouter();
   // const timelineData = [
   //   {
   //     title: "National Institute of Business Management",
@@ -86,11 +86,11 @@ software engineering.`;
           Download CV
         </Button>
         <button
-          onClick={() => router.push("/Pages/projects")}
-          className="w-40 h-14 rounded-3xl border-white border-x-1 px-5 bg-[#3533cd] text-white font-semibold"
-        >
-          Hire me
-        </button>
+      onClick={() => router.push("/Pages/contact")}
+      className="w-40 h-14 rounded-3xl border-white border-x-1 px-5 bg-[#3533cd] hover:bg-[#2927a1] text-white font-semibold"
+    >
+      Hire me
+    </button>
       </div>
 
       {/* Social Media Icons */}
@@ -191,6 +191,7 @@ software engineering.`;
 <section id="youtube">
 <VideoSection />
 </section>
+
 <Footer/>
 
     </main>
